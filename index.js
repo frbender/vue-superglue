@@ -1,3 +1,3 @@
-import uberglue from "./src/uberglue";
+import uberglue from './src/uberglue';
 
 export default uberglue;

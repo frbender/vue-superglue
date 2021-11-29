@@ -14,6 +14,32 @@ class Sticky {
     window.addEventListener('resize', this.resizeHandler);
   }
 
+  insertPlaceholder(placeholder) {
+    this.el.parentNode.insertBefore(placeholder, this.el.nextSibling);
+  }
+
+  removePlaceholder(placeholer) {
+    this.el.parentNode.removeChild(placeholer);
+  }
+
+  initializeElementStyle() {
+    this.el.style.position = 'absolute';
+  }
+
+  updatePlaceholder() {
+    if (this.placeholder) {
+      const rect = this.el.getBoundingClientRect();
+      this.placeholder.style.width = `${rect.width}px`;
+      this.placeholder.style.height = `${rect.height}px`;
+    }
+  }
+
+  static getPlaceholder() {
+    const placeholder = document.createElement('div');
+    placeholder.style.display = 'static';
+    return placeholder;
+  }
+
   // get closest 'sticky-container' parent
   getContainer() {
     let parent = this.el.parentNode;
@@ -27,6 +53,7 @@ class Sticky {
   }
 
   destroy() {
+    this.removePlaceholder(this.placeholder);
     document.removeEventListener('scroll', this.scrollHandler);
     window.removeEventListener('resize', this.resizeHandler);
   }
@@ -44,6 +71,8 @@ class Sticky {
     const parentTop = parentRect.top;
     const parentHeight = this.parent.clientHeight;
     const elementHeight = this.el.clientHeight;
+
+    this.updatePlaceholder();
 
     if (elementHeight < parentHeight) {
       const sizeDiff = parentHeight - elementHeight;
@@ -69,8 +98,12 @@ class Sticky {
   }
 
   inserted() {
+    this.initializeElementStyle();
     this.detectPositioning();
     this.update();
+    this.placeholder = Sticky.getPlaceholder();
+    this.insertPlaceholder(this.placeholder);
+    this.updatePlaceholder();
   }
 
   updated() {
