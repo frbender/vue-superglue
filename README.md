@@ -52,3 +52,11 @@ element libraries.
    }
    ```
 4. Done!
+
+### Implementation Background
+
+What does uberglue do? It makes the sticky element `position: absolute` or `position: fixed` depending on where the
+scroll bar is. It also inserts a placeholder element with the same `clientRect` dimensions directly after the
+sticky element so the resulting 'hole' is filled.
+
+For this to work make sure you assign the right `z-index` to the sticky element and 
