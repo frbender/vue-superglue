@@ -53,10 +53,19 @@ element libraries.
    ```
 4. Done!
 
+
+### Stickyness State
+
+The sticky element will obtail a `stickyState` data set attribute (e.g. `data-sticky-state="scroll-top"`). The values can be:
+- `scroll-top`: not scrolled far enough so the element will scroll, sticking on the top
+- `stick-top`: element gets `display:fixed` and sticks to the top edge of the browser
+- `scroll-bottom`: scrolled too far so the element will stick to the bottom edge of the container
+
+
 ### Implementation Background
 
 What does uberglue do? It makes the sticky element `position: absolute` or `position: fixed` depending on where the
 scroll bar is. It also inserts a placeholder element with the same `clientRect` dimensions directly after the
 sticky element so the resulting 'hole' is filled.
 
-For this to work make sure you assign the right `z-index` to the sticky element and 
+For this to work make sure you assign the right `z-index` to the sticky element.
