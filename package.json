@@ -1,10 +1,6 @@
 {
   "name": "@frbender/vue-uberglue",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/frbender/vue-uberglue.git"
-  },
-  "version": "1.0.7",
+  "version": "1.0.8",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name vue-uberglue --mode production index.js && rm ./dist/demo.html",
@@ -12,12 +8,16 @@
     "lint": "vue-cli-service lint",
     "lint:fix": "vue-cli-service lint --fix"
   },
-  "main":  "dist/vue-uberglue.common.js",
-  "files": ["dist/*"],
+  "main": "dist/vue-uberglue.common.js",
+  "files": [
+    "dist/*"
+  ],
   "dependencies": {
+    "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
@@ -27,5 +27,9 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frbender/vue-uberglue.git"
   }
 }
