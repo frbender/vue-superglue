@@ -83,19 +83,19 @@ class Sticky {
         this.el.style.position = 'absolute';
         this.el.style.top = `${this.elY}px`;
         this.el.style.left = `${this.elX}px`;
-        this.el.dataset.stickyState='scroll-top'
+        this.el.dataset.stickyState = 'scroll-top';
       } else if (negParentTop >= 0 && negParentTop <= sizeDiff) {
         // stick to it
         this.el.style.position = 'fixed';
         this.el.style.top = `${0}px`;
         this.el.style.left = `${this.elX}px`;
-        this.el.dataset.stickyState='stick-top'
+        this.el.dataset.stickyState = 'stick-top';
       } else if (negParentTop > sizeDiff) {
         // stick at the bottom
         this.el.style.position = 'absolute';
         this.el.style.top = `${this.elY + sizeDiff}px`;
         this.el.style.left = `${this.elX}px`;
-        this.el.dataset.stickyState='scroll-bottom'
+        this.el.dataset.stickyState = 'scroll-bottom';
       }
     }
   }
