@@ -4,15 +4,16 @@
     "type": "git",
     "url": "https://github.com/frbender/vue-uberglue.git"
   },
-  "version": "1.0.6",
+  "version": "1.0.7",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name vue-uberglue src/uberglue.js",
+    "build": "vue-cli-service build --target lib --name vue-uberglue --mode production index.js && rm ./dist/demo.html",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "lint:fix": "vue-cli-service lint --fix"
   },
-  "main":  "index.js",
+  "main":  "dist/vue-uberglue.common.js",
+  "files": ["dist/*"],
   "dependencies": {
     "vue": "^2.6.11"
   },
